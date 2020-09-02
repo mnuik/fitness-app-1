@@ -13,6 +13,7 @@ const RejectionController = require('./controllers/RejectionController')
 
 const uploadConfig = require('./config/upload')
 
+
 // Creating instances
 // Define middleware which allows us to route from different file
 const routes = express.Router()
@@ -21,9 +22,14 @@ const upload = multer(uploadConfig)
 
 // Define routes using express' Router method
 // Checking if app is running fine
-routes.get('/status', (req, res)=> {
+routes.get("/status", (req, res) => {
     res.send({ status: 200 })
 })
+
+routes.get("/", (req, res, next) => {
+    res.send("Welcome to main route!");
+   });
+
 
 // Event
 // Event creation end point
